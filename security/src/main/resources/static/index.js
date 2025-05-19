@@ -204,7 +204,7 @@ angular.module('api', ['ngStorage']).controller('indexController', function ($sc
                            productTitle: item.productTitle,
                            quantity: item.quantity,
                            pricePerProduct: item.pricePerProduct,
-                           total_price: item.price
+                           price: item.price
                        }))
                    };
 

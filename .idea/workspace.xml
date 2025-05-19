@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be651ebf-697d-47c4-ad7f-a8b1f21299a4" name="Changes" comment="" />
+    <list default="true" id="be651ebf-697d-47c4-ad7f-a8b1f21299a4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/products/example/Dto/OrderDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/products/example/Dto/OrderDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/products/example/controllers/OrderControllers.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/products/example/controllers/OrderControllers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/products/example/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/products/example/entity/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/products/example/entity/OrderItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/products/example/entity/OrderItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/products/example/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/products/example/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/resources/static/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/resources/static/index.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,10 +28,26 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "zabuldiga"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/zabuldiga/securityProject.git",
+    "accountId": "c803c43e-a63d-4e25-a609-c2dcc1375a08"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="2v70oeRpE0QSKrlQBEu0s1ov83i" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -33,6 +58,8 @@
     "Application.SpringWebApplication.executor": "Run",
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/Загрузки/spring-web (2)",

@@ -17,8 +17,8 @@ public class OrderItems {
     int product_id;
     @Column(name = "user_id")
     int user_id;
-    @Column(name = "order_id")
-    int order_id;
+//    @Column(name = "order_id")
+//    int order_id;
     @Column(name = "quantity")
     int quantity;
     @Column(name = "price_per_product")
@@ -26,5 +26,8 @@ public class OrderItems {
     @Column(name = "price")
     int total_price;
 
+    @ManyToOne
+    @JoinColumn(name = "order_id",nullable = false)
+    private Order order;
 
 }

@@ -1,10 +1,10 @@
 package products.example.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
-
-
-
+import java.time.LocalDateTime;
 
 
 @Entity
@@ -65,4 +65,12 @@ public class Product {
                 ", cost=" + cost +
                 '}';
     }
+
+    @CreationTimestamp
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    @UpdateTimestamp
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
 }

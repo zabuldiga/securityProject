@@ -45,4 +45,5 @@ public interface ProductRepository extends JpaRepository<Product, Long>, JpaSpec
     Long findIdByName(@Param("product_name") String name);
 
 
+    Product findByName(String name);
 }

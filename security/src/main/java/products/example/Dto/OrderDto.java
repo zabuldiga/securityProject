@@ -10,6 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 public class OrderDto {
+    private Long id;
     private String username;
     private String phone;
     private String address;

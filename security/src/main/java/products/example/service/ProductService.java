@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 import products.example.Dto.ProductDto;
 import products.example.ProductSpecification;
@@ -26,7 +27,10 @@ public class ProductService {
     public Long findIdByName(String name){
          return   productRepository.findIdByName(name);
     }
+    public Product findByName(String name){
+        return productRepository.findByName(name);
 
+    }
     public Page<Product> find(Integer minCost, Integer maxCost, Integer page) {
         Specification<Product> spec = Specification.where(null);
 

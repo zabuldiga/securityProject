@@ -1,0 +1,54 @@
+
+<table class="table table-bordered bg-white">
+    <thead class="thead-light">
+    <tr>
+        <th>ID</th>
+        <th>Имя продукта</th>
+        <th>Цена</th>
+        <th>Действие</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="p in ProductsList">
+        <td>{{p.id}}</td>
+        <td>{{p.name}}</td>
+        <td>
+            <div class="d-flex align-items-center">
+                <button class="btn btn-sm btn-outline-secondary mr-2" ng-click="changeCost(p.id, -5)">−</button>
+                <span>{{p.cost}}</span>
+                <button class="btn btn-sm btn-outline-secondary ml-2" ng-click="changeCost(p.id, 5)">+</button>
+            </div>
+        </td>
+        <td>
+            <button class="btn btn-sm btn-outline-danger mr-2" ng-click="deleteProduct(p.id)">Удалить</button>
+            <button class="btn btn-sm btn-outline-success" ng-click="addToCart(p.id)">В корзину</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <span class="text-muted">Текущая страница: {{ currentPage }}</span>
+    <div>
+        <button class="btn btn-outline-primary btn-sm mr-2" ng-click="previousPage()" ng-disabled="currentPage <= 1">Назад</button>
+        <button class="btn btn-outline-primary btn-sm" ng-click="nextPage()" ng-disabled="currentPage >= totalPages">Вперёд</button>
+    </div>
+</div>
+
+<div class="section-divider"></div>
+
+    <h3>Добавить продукт</h3>
+    <form novalidate ng-submit="createProductDtoJson()">
+        <input class="form-control" type="text" placeholder="Название" ng-model="newProductDtoJson.name">
+        <input class="form-control" type="number" placeholder="Цена" ng-model="newProductDtoJson.cost">
+        <button type="submit" class="btn btn-outline-primary mt-2">Сохранить JSON продукта</button>
+    </form>
+
+    <div class="section-divider"></div>
+
+    <h3>Фильтровать по цене</h3>
+    <form novalidate ng-submit="load()">
+        <input class="form-control" type="number" placeholder="Минимальная цена" ng-model="minCost">
+        <input class="form-control" type="number" placeholder="Максимальная цена" ng-model="maxCost">
+        <button type="submit" class="btn btn-outline-primary mt-2">Фильтровать</button>
+    </form>

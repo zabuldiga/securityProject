@@ -1,0 +1,64 @@
+<div>
+    <p></p>
+    <h3>Корзина</h3>
+    <table class="table table-bordered bg-white">
+        <thead class="thead-light">
+        <tr>
+
+            <th>Название товара</th>
+            <th>Количество</th>
+            <th>Цена</th>
+
+            <th></th> <!-- для кнопки удаления -->
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in cart.items">
+
+            <td>{{item.productTitle}}</td>
+            <td>{{item.quantity}}</td>
+            <td>{{item.pricePerProduct + ' x ' + item.quantity + ' = ' + item.price}}</td>
+            <td>
+                <button class="btn btn-sm btn-outline-danger" ng-click="deleteProductByIdToCart(item.productId)">Удалить</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"></td>
+            <td><strong>Итого</strong></td>
+            <td><strong>{{cart.totalPrice}}</strong></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p>
+        <button class="btn btn-secondary" ng-click="clearCart()">Очистить корзину</button>
+    </p>
+
+    <p></p>
+
+
+
+        <!-- Заказ -->
+        <div ng-if="isUserLoggedIn()" class="ml-3">
+<!--            &lt;!&ndash; Кнопка "Оформить заказ", показывается если форма скрыта &ndash;&gt;-->
+            <button class="btn btn-sm btn-outline-primary mb-3"
+                    ng-click="toggleOrderForm()"
+                    ng-if="!showOrderForm && cart.items && cart.items.length > 0">
+                Оформить заказ
+            </button>
+
+            <!-- Форма с телефоном и адресом -->
+            <div ng-if="showOrderForm">
+                <div class="form-group mt-2">
+                    <label>Телефон:</label>
+                    <input type="text" class="form-control" ng-model="order.phone" placeholder="+7..." required>
+                </div>
+                <div class="form-group mt-2">
+                    <label>Адрес доставки:</label>
+                    <input type="text" class="form-control" ng-model="order.address" placeholder="Ваш адрес..." required>
+                </div>
+                <button class="btn btn-sm btn-success mt-2" ng-click="submitOrder()">Подтвердить заказ</button>
+            </div>
+        </div>
+
+</div>

@@ -1,37 +1,51 @@
-angular.module('api', ['ngStorage']).controller('indexController', function ($scope, $http , $localStorage) {
+(function () {
+    angular
+        .module('market-front', ['ngRoute', 'ngStorage'])
+        .config(config)
+        .run(run);
+
+    function config($routeProvider) {
+        $routeProvider
+            .when('/', {
+                templateUrl: 'welcome/welcome.html',
+                controller: 'welcomeController'
+            })
+            .when('/store', {
+                templateUrl: 'store/store.html',
+                controller: 'storeController'
+            })
+            .when('/cart', {
+                templateUrl: 'cart/cart.html',
+                controller: 'cartController'
+            })
+            .when('/orders', {
+                            templateUrl: 'orders/orders.html',
+                            controller: 'ordersController'
+            })
+            .otherwise({
+                redirectTo: '/'
+            });
+    }
+
+    function run($rootScope, $http, $localStorage) {
+        if ($localStorage.springWebUser) {
+            $http.defaults.headers.common.Authorization = 'Bearer ' + $localStorage.springWebUser.token;
+        }
+    }
+})();
+
+
+angular.module('market-front').controller('indexController', function ($rootScope,$scope, $http ,$location, $localStorage) {
     const contextPath = 'http://localhost:8080/api/v1/';
-    $scope.currentPage = 1;
     $scope.user = {
         username: '',
         password: ''
     };
 
+                    $scope.clearOrders = function() {
+                        $scope.MyOrders = [];
+                    };
 
-
-
-
-
-//   page
-                  $scope.previousPage = function () {
-                          if ($scope.currentPage > 1) {
-                              $scope.currentPage--;
-                              $scope.load($scope.currentPage);
-                          }
-                      };
-
-                      $scope.nextPage = function () {
-                          $scope.currentPage++;
-                          $scope.load($scope.currentPage);
-                      };
-
-
-
-
-
-
-
-
-//   auth
                  $scope.isUserLoggedIn = function () {
                             return $localStorage.springWebUser && $localStorage.springWebUser.token;
                             };
@@ -39,6 +53,8 @@ angular.module('api', ['ngStorage']).controller('indexController', function ($sc
                              $scope.logout = function () {
                                 delete $localStorage.springWebUser;
                                 delete $http.defaults.headers.common.Authorization;
+                                $scope.clearOrders();
+                                $location.path('/');
                                 };
 
                                  $scope.goToLogin = function () {
@@ -53,6 +69,7 @@ angular.module('api', ['ngStorage']).controller('indexController', function ($sc
                                                 $localStorage.springWebUser = {username: $scope.user.username, token: response.data.token};
                                                 $scope.user.username = null;
                                                 $scope.user.password = null;
+                                                 $location.path('/');
                                             }
                                         }, function errorCallback(response) {
                                         });
@@ -63,175 +80,34 @@ angular.module('api', ['ngStorage']).controller('indexController', function ($sc
 
 
 // user
-         $scope.createNewUser = function () {
-                                      console.log($scope.user);
-                                      $http.post(contextPath +  'apps/new-user/' , $scope.user)
-                                          .then(function (response) {
-                                               alert('successful registration : ' + $scope.user.username);
-                                              $scope.load();
-                                          });
-         }
-
-          $scope.showCurrentUserInfo = function(){
-          $http.get('/profile')
-          .then(function successCallback(response){
-              alert('MY NAME IS: ' + response.data.username);
-           }, function errorCallback(response){
-                  alert('UNAUTHORIZED');
-               });
-         }
-
-
-
-
-
-// load
-        $scope.load = function(pageIndex){
-         console.log($scope.currentPage);
-         currentPage = pageIndex;
-         $http({
-                              url: contextPath + 'products/',
-                              method: 'get',
-                                  params: {
-                                      minCost: $scope.minCost,
-                                      maxCost: $scope.maxCost,
-                                      page: $scope.currentPage
-                              }
-                          }).then(function (response) {
-                             $scope.ProductsList = response.data.content;
-                             $scope.totalPages = response.data.page.totalPages; // Доступ к totalPages внутри page
-
-                             console.log("Текущая страница:", pageIndex, "Всего страниц:", $scope.totalPages);
-                          });
-        }
+//         $scope.createNewUser = function () {
+//                                      console.log($scope.user);
+//                                      $http.post(contextPath +  'apps/new-user/' , $scope.user)
+//                                          .then(function (response) {
+//                                               alert('successful registration : ' + $scope.user.username);
+//                                              $scope.load();
+//                                          });
+//         }
+//
+//          $scope.showCurrentUserInfo = function(){
+//          $http.get('/profile', {
+//             headers: {
+//               'Authorization': 'Bearer ' + $localStorage.springWebUser.token
+//             }
+//          }).then(function successCallback(response){
+//              alert('MY NAME IS: ' + response.data.username);
+//           }, function errorCallback(response){
+//                  alert('UNAUTHORIZED');
+//               });
+//         }
+//
+//
+//
+//
+//
 
 
+//
 
-
-
-
-
-//  products
-                    $scope.deleteProduct = function(productId){
-                      $http.delete(contextPath + 'products/' +  productId)
-                      .then(function(response){
-                       $scope.load();
-                       });
-                    }
-
-                       $scope.deleteProductInBasket = function(productId){
-                           $http.delete(contextPath +'products/basket/'+ productId)
-                           .then(function(response){
-                           $scope.loadBasket();
-                           });
-                        }
-
-                       $scope.changeCost = function(id,delta){
-                                  $http({
-                                    url: contextPath + 'products/change_cost' ,
-                                      method: 'PATCH',
-                                        params:{
-                                           id: id,
-                                           delta: delta
-                                               }
-                              }).then(function(response){
-                                    $scope.load();
-                              });
-                              }
-
-                        $scope.createProductDtoJson = function () {
-                           console.log($scope.newProductJson);
-                               $http.post(contextPath + 'products/' , $scope.newProductDtoJson)
-                               .then(function (response) {
-                               $scope.newProductDtoJson.name ='';
-                               $scope.newProductDtoJson.cost ='';
-                               $scope.load();
-                          });
-                        }
-
-
-
-
-
-// cart
-                $scope.addToCart =  function(productId){
-                        $http.get(contextPath + 'carts/add/' + productId)
-                             .then(function (response) {
-                              $scope.loadCart();
-                        });
-
-                 }
-
-
-                $scope.loadCart = function(){
-                $http.get(contextPath + 'carts')
-                   .then(function(response){
-                       $scope.cart = response.data;
-                   });
-                }
-
-
-                $scope.clearCart = function(){
-                       $http.get(contextPath + 'carts/clear')
-                       .then(function(response){
-                       $scope.cart = response.data;
-                       });
-                }
-
-
-               // Переменная-флаг
-               $scope.showOrderForm = false;
-               $scope.order = {}; // Телефон и адрес
-
-               // Показывает/скрывает форму
-               $scope.toggleOrderForm = function () {
-                   $scope.showOrderForm = true;
-               };
-
-               $scope.submitOrder = function () {
-                   if (!$scope.order.phone || !$scope.order.address) {
-                       alert("Введите телефон и адрес");
-                       return;
-                   }
-
-                   const orderDto = {
-                       username: $localStorage.springWebUser.username,
-                       product_title: $scope.cart.items.length > 0 ? $scope.cart.items[0].productTitle : '',
-                       total_price: $scope.cart.totalPrice,
-                       phone: $scope.order.phone,
-                       address: $scope.order.address,
-                       items: $scope.cart.items.map(item => ({
-                           productTitle: item.productTitle,
-                           quantity: item.quantity,
-                           pricePerProduct: item.pricePerProduct,
-                           price: item.price
-                       }))
-                   };
-
-                   $http.post(contextPath + 'order/', orderDto)
-                       .then(function (response) {
-                           alert("Заказ успешно отправлен!");
-                           console.log(orderDto);
-                           $scope.order = {};
-                           $scope.showOrderForm = false;
-                       }, function (error) {
-                           console.error("Ошибка при отправке заказа:", error);
-                           alert("Ошибка при отправке заказа.");
-                       });
-               };
-
-
-
-
-
-
-
-
-
-
-
-
-        $scope.load();
-        $scope.loadCart();
 });
 

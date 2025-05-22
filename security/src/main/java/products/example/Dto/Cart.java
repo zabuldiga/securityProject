@@ -54,8 +54,10 @@ public class Cart {
             OrderItemDto o = iter.next();
             if (o.getProductId().equals(id)) {
                 o.changeQuantity(-1);
+                recalculate();
                 if (o.getQuantity() <= 0) {
                     iter.remove();
+                    recalculate();
                     return;
                 }
 

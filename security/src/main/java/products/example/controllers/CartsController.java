@@ -14,7 +14,7 @@ import products.example.service.CartService;
 import products.example.service.ProductService;
 
 @RestController
-@RequestMapping("/api/v1/carts")
+@RequestMapping("/api/v1/cart")
 @RequiredArgsConstructor
 public class CartsController {
 
@@ -37,6 +37,12 @@ public class CartsController {
     public void clearCart() {
         cartService.getCurrentCart().clear();
 
+    }
+
+    @GetMapping("/delete/{productId}")
+    public Cart delete(@PathVariable Long productId){
+        cartService.delete(productId);
+        return cartService.getCurrentCart();
     }
 
 }

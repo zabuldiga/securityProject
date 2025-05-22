@@ -3,6 +3,12 @@ package products.example.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -13,12 +19,12 @@ public class OrderItems {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     Long id;
-    @Column(name = "product_id")
-    int product_id;
+    @ManyToOne
+    @JoinColumn(name = "product_id", foreignKey = @ForeignKey(name = "fk_products_id"))
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Product product;
     @Column(name = "user_id")
     int user_id;
-//    @Column(name = "order_id")
-//    int order_id;
     @Column(name = "quantity")
     int quantity;
     @Column(name = "price_per_product")
@@ -29,5 +35,13 @@ public class OrderItems {
     @ManyToOne
     @JoinColumn(name = "order_id",nullable = false)
     private Order order;
+
+    @CreationTimestamp
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    @UpdateTimestamp
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
 
 }

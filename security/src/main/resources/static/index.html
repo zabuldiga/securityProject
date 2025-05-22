@@ -1,14 +1,15 @@
+
 <!doctype html>
-<html ng-app="api" lang="en">
+<html ng-app="market-front" lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Продукты</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.min.js"></script>
-    <script src="index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular-route.min.js"></script>
+
     <style>
         body {
             background-color: #f8f9fa;
@@ -38,9 +39,30 @@
     </style>
 </head>
 <body>
+
+
+
 <div class="container py-4" ng-controller="indexController">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#!/">Spring Web Application</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!/store">Каталог товаров</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!/cart">Корзина</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!/orders">Мои заказы</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <ng-view></ng-view>
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h3 class="mb-0">Список продуктов</h3>
         <span id="username" class="font-weight-bold text-muted">{{username}}</span>
     </div>
 
@@ -52,137 +74,17 @@
             <button class="btn btn-outline-secondary btn-custom" ng-click="createNewUser()">Регистрация</button>
         </div>
         <div ng-if="isUserLoggedIn()" class="ml-3">
-            <button class="btn btn-outline-dark mr-2 btn-custom" ng-click="showCurrentUserInfo()">Обо мне</button>
             <button class="btn btn-outline-danger btn-custom" ng-click="logout()">Выйти</button>
         </div>
     </div>
-
-    <table class="table table-bordered bg-white">
-        <thead class="thead-light">
-        <tr>
-            <th>ID</th>
-            <th>Имя продукта</th>
-            <th>Цена</th>
-            <th>Действие</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="p in ProductsList">
-            <td>{{p.id}}</td>
-            <td>{{p.name}}</td>
-            <td>
-                <div class="d-flex align-items-center">
-                    <button class="btn btn-sm btn-outline-secondary mr-2" ng-click="changeCost(p.id, -5)">−</button>
-                    <span>{{p.cost}}</span>
-                    <button class="btn btn-sm btn-outline-secondary ml-2" ng-click="changeCost(p.id, 5)">+</button>
-                </div>
-            </td>
-            <td>
-                <button class="btn btn-sm btn-outline-danger mr-2" ng-click="deleteProduct(p.id)">Удалить</button>
-                <button class="btn btn-sm btn-outline-success" ng-click="addToCart(p.id)">В корзину</button>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <span class="text-muted">Текущая страница: {{ currentPage }}</span>
-        <div>
-            <button class="btn btn-outline-primary btn-sm mr-2" ng-click="previousPage()"
-                    ng-disabled="currentPage <= 1">Назад
-            </button>
-            <button class="btn btn-outline-primary btn-sm" ng-click="nextPage()"
-                    ng-disabled="currentPage >= totalPages">Вперёд
-            </button>
-        </div>
-    </div>
-
-    <div class="section-divider"></div>
-
-    <h3>Корзина</h3>
-    <table class="table table-bordered bg-white">
-        <thead class="thead-light">
-        <tr>
-            <th>Имя продукта</th>
-            <th>Цена</th>
-            <th>Количество</th>
-        </tr>
-        </thead>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="items in cart.items">
-            <td>{{items.productTitle}}</td>
-            <td>{{items.quantity}}</td>
-            <td>{{items.pricePerProduct + ' X ' + items.quantity + ' = ' + items.price}}</td>
-            <td>
-                <button class="btn btn-sm btn-outline-danger" ng-click="deleteProductByIdToCart(items.productId)">
-                    Удалить
-                </button>
-            </td>
-            <p>
-                <button class="btn btn-sm btn-outline-danger" ng-click="clearCart()">
-                    Очистить корзину
-                </button>
-<!--            <div ng-if="isUserLoggedIn()" class="ml-3">-->
-<!--                <button class="btn btn-sm btn-outline-primary" ng-click="createOrder()">Оформить заказ</button>-->
-<!--            </div>-->
-<!--            </p>-->
-<!--        </tr>-->
-            <div ng-if="isUserLoggedIn()" class="ml-3">
-                <!-- Кнопка "Оформить заказ", показывается если форма скрыта -->
-                <button
-                        class="btn btn-sm btn-outline-primary"
-                        ng-click="toggleOrderForm()"
-                        ng-if="!showOrderForm">
-                    Оформить заказ
-                </button>
-
-                <!-- Форма с телефоном и адресом -->
-                <div ng-if="showOrderForm">
-                    <div class="form-group mt-2">
-                        <label>Телефон:</label>
-                        <input type="text" class="form-control" ng-model="order.phone" placeholder="+7..." required>
-                    </div>
-                    <div class="form-group mt-2">
-                        <label>Адрес доставки:</label>
-                        <input type="text" class="form-control" ng-model="order.address" placeholder="Ваш адрес..." required>
-                    </div>
-                    <button
-                            class="btn btn-sm btn-success mt-2"
-                            ng-click="submitOrder()">
-                        Подтвердить заказ
-                    </button>
-                </div>
-            </div>
-
-
-            <!-- Строка Итого -->
-        <tr>
-            <td colspan="2"></td>
-            <td><strong>Итого:</strong></td>
-            <td><strong>{{cart.totalPrice}}</strong></td>
-        </tr>
-        </tbody>
-    </table>
-
-    <div class="section-divider"></div>
-
-    <h3>Добавить продукт</h3>
-    <form novalidate ng-submit="createProductDtoJson()">
-        <input class="form-control" type="text" placeholder="Название" ng-model="newProductDtoJson.name">
-        <input class="form-control" type="number" placeholder="Цена" ng-model="newProductDtoJson.cost">
-        <button type="submit" class="btn btn-outline-primary mt-2">Сохранить JSON продукта</button>
-    </form>
-
-    <div class="section-divider"></div>
-
-    <h3>Фильтровать по цене</h3>
-    <form novalidate ng-submit="load()">
-        <input class="form-control" type="number" placeholder="Минимальная цена" ng-model="minCost">
-        <input class="form-control" type="number" placeholder="Максимальная цена" ng-model="maxCost">
-        <button type="submit" class="btn btn-outline-primary mt-2">Фильтровать</button>
-    </form>
+</nav>
+    <script src="index.js"></script>
+    <script src="store/store.js"></script>
+    <script src="cart/cart.js"></script>
+    <script src="welcome/welcome.js"></script>
+    <script src="orders/orders.js"></script>
 </div>
-</body>
-</html>
+
+
+    </body>
+    </html>

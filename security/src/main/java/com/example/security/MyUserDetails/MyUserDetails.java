@@ -54,4 +54,9 @@ public class MyUserDetails implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+    public User getUser() {
+        this.user = user;
+        return user;
+    }
 }

@@ -11,7 +11,6 @@ import java.security.Principal;
 public class ProfileController {
     @GetMapping
     public ProfileDto getCurrentUsers(Principal principal){
-        System.out.println("===========================================");
         return new ProfileDto(principal.getName());
 
     }

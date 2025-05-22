@@ -27,7 +27,12 @@ public class CartService {
         getCurrentCart().clear();
 
     }
+ public void delete(Long id){
 
+         cart.decreaseProduct(id);
+
+
+ }
 
     public void addProductByIdToCart(Long productId) {
         if (!getCurrentCart().addProductById(productId)) {

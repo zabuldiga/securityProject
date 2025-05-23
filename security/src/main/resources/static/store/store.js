@@ -64,11 +64,15 @@ angular.module('market-front').controller('storeController', function ($scope, $
                                                      $scope.currentPage++;
                                                      $scope.load($scope.currentPage);
                                                  };
-   $scope.addToCart =  function(productId){
-                            $http.get(contextPath + 'cart/add/' + productId)
-                                 .then(function (response) {
-                            });
-
-                     }
+//   $scope.addToCart =  function(productId){
+//                            $http.get(contextPath + 'cart/add/' + productId)
+//                                 .then(function (response) {
+//                            });
+//                     };
+$scope.addToCart = function (productId) {
+        $http.get(contextPath + 'cart/' + $localStorage.springWebGuestCartId + '/add/' + productId)
+            .then(function (response) {
+            });
+    };
       $scope.load();
 });

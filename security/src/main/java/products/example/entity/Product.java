@@ -73,4 +73,8 @@ public class Product {
     @UpdateTimestamp
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+//    @ManyToOne
+//    @JoinColumn(name = "category_id")
+//    private Category category;
 }

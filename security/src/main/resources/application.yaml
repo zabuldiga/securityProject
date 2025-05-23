@@ -4,5 +4,7 @@ spring:
     url: jdbc:postgresql://localhost:5432/repository
     username: postgres
     password: admin
-
+utils:
+  cart:
+    prefix: SPRING_WEB_
 

@@ -4,25 +4,27 @@ angular.module('market-front').controller('cartController', function ($scope, $h
 
 
 
-                    $scope.loadCart = function(){
-                    $http.get(contextPath + 'cart')
-                       .then(function(response){
-                           $scope.cart = response.data;
-                       });
-                    }
+                  $scope.loadCart = function () {
+                          $http({
+                              url: contextPath + 'cart/' + $localStorage.springWebGuestCartId,
+                              method: 'GET'
+                          }).then(function (response) {
+                              $scope.cart = response.data;
+                          });
+                      };
 
 
-                    $scope.clearCart = function(){
-                           $http.get(contextPath + 'cart/clear')
-                           .then(function(response){
-                           $scope.cart = response.data;
-                           });
-                    }
+                   $scope.clearCart = function () {
+                           $http.get(contextPath + 'cart/' + $localStorage.springWebGuestCartId + '/clear')
+                               .then(function (response) {
+                                   $scope.loadCart();
+                               });
+                       }
 
                            $scope.deleteProductByIdToCart = function(productId){
-                              $http.get(contextPath + 'cart/delete/' + productId)
+                              $http.get(contextPath + 'cart/' + $localStorage.springWebGuestCartId + '/decrement/' + productId)
                               .then(function(response){
-                                   $scope.cart = response.data;
+                                  $scope.loadCart();
                               });
                               }
       $scope.showOrderForm = false;

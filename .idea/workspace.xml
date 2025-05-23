@@ -4,34 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be651ebf-697d-47c4-ad7f-a8b1f21299a4" name="Changes" comment="change order logic">
-      <change afterPath="$PROJECT_DIR$/security/src/main/resources/static/cart/cart.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/resources/static/cart/cart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/resources/static/orders/orders.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/resources/static/orders/orders.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/resources/static/store/store.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/resources/static/store/store.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/resources/static/welcome/welcome.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/resources/static/welcome/welcome.js" afterDir="false" />
+    <list default="true" id="be651ebf-697d-47c4-ad7f-a8b1f21299a4" name="Changes" comment="pagenation logic">
+      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/example/security/config/RedisConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/example/security/dto/StringResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/src/main/java/products/example/entity/Category.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/example/security/MyUserDetails/MyUserDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/example/security/MyUserDetails/MyUserDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/example/security/controllers/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/example/security/controllers/ProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/example/security/services/UserDetailsServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/example/security/services/UserDetailsServices.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/security/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/example/security/SecurityApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/example/security/SecurityApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/security/src/main/java/products/example/Dto/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/products/example/Dto/Cart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/products/example/Dto/OrderDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/products/example/Dto/OrderDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/products/example/Dto/OrderItemDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/products/example/Dto/OrderItemDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/security/src/main/java/products/example/controllers/CartsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/products/example/controllers/CartsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/products/example/controllers/OrderControllers.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/products/example/controllers/OrderControllers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/products/example/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/products/example/entity/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/products/example/entity/OrderItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/products/example/entity/OrderItems.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/security/src/main/java/products/example/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/products/example/entity/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/products/example/repository/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/products/example/repository/OrderRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/products/example/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/products/example/repository/ProductRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/security/src/main/java/products/example/service/CartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/products/example/service/CartService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/products/example/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/products/example/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/products/example/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/products/example/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/resources/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/resources/static/cart/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/resources/static/cart/cart.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/security/src/main/resources/static/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/resources/static/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/resources/static/store/store.html" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/resources/static/store/store.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/security/src/main/resources/static/store/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/resources/static/store/store.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,12 +30,18 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -71,24 +65,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.SecurityApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.SpringWebApplication.executor&quot;: &quot;Run&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Загрузки/spring-web (2)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.4954023&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.SecurityApplication.executor": "Run",
+    "Application.SpringWebApplication.executor": "Run",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Загрузки/spring-web",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.4954023",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="products.example.Dto" />
@@ -160,11 +154,49 @@
       <option name="project" value="LOCAL" />
       <updated>1747685763067</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="pagenation logic">
+      <option name="closed" value="true" />
+      <created>1747907787491</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1747907787491</updated>
+    </task>
+    <task id="LOCAL-00003" summary="pagenation logic">
+      <option name="closed" value="true" />
+      <created>1747907854286</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1747907854286</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="a7eec886-de97-4979-91c2-9014864c274f" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+        <entry key="a7eec886-de97-4979-91c2-9014864c274f">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="change order logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="change order logic" />
+    <MESSAGE value="pagenation logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="pagenation logic" />
   </component>
 </project>

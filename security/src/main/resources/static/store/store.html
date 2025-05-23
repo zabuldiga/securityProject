@@ -48,6 +48,10 @@
 
     <h3>Фильтровать по цене</h3>
     <form novalidate ng-submit="load()">
+
+        <select class="form-control mb-2" ng-model="selectedCategory" ng-options="cat for cat in categories">
+            <option value="">Все категории</option>
+        </select>
         <input class="form-control" type="number" placeholder="Минимальная цена" ng-model="minCost">
         <input class="form-control" type="number" placeholder="Максимальная цена" ng-model="maxCost">
         <button type="submit" class="btn btn-outline-primary mt-2">Фильтровать</button>

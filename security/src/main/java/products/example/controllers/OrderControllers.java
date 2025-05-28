@@ -29,7 +29,7 @@
 
             @GetMapping
             public List<OrderDto> getCurrentUserOrders(Principal principal) {
-                return orderService.findOrderByUsername(principal.getName()).stream().map(orderC::entityToDto).collect(Collectors.toList());
+                return orderService.findOrderByUsername(principal.getName()).stream().map(orderC::toDto).collect(Collectors.toList());
 
             }
     }

@@ -5,21 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="be651ebf-697d-47c4-ad7f-a8b1f21299a4" name="Changes" comment="pagenation logic">
-      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/example/security/config/RedisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/java/com/example/security/dto/StringResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/security/src/main/java/products/example/entity/Category.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/security/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/com/example/security/SecurityApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/com/example/security/SecurityApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/products/example/Dto/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/products/example/Dto/Cart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/products/example/controllers/CartsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/products/example/controllers/CartsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/products/example/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/products/example/entity/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/java/products/example/service/CartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/java/products/example/service/CartService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/resources/static/cart/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/resources/static/cart/cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/resources/static/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/resources/static/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/resources/static/store/store.html" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/resources/static/store/store.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/security/src/main/resources/static/store/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/security/src/main/resources/static/store/store.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/src/main/java/products/example/converter/OrderConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/security/src/main/java/products/example/converter/OrderItemConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +64,7 @@
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Загрузки/spring-web",
+    "last_opened_file_path": "D:/Programm/IdeaProjects/securityProject",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.4954023",
